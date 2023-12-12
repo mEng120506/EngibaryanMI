@@ -9,11 +9,10 @@ import math
 points_x = [1, 2, 4, 5, 7]
 points_y = [3, 5, 2, 6, 1]
 
-# координаты точки В
 point_b = (3, 4)
 
 min_distance = float('inf')
-closest_point = None
+closest_point = 0
 
 for i in range(len(points_x)):
     distance = math.sqrt((points_x[i] - point_b[0])**2 + (points_y[i] - point_b[1])**2)
