@@ -19,9 +19,13 @@ with sq.connect('promishlenost.db') as con:
 
 with sq.connect('promishlenost.db') as con:
  cur = con.cursor()
-cur.execute("SELECT * FROM predpriyatia")
-result = cur.fetchall()
-print(result)
+ cur.executemany("INSERT INTO predpriyatia VALUES (?, ?, ?, ?, ?, ?, ?, ?)", info_prom)
+
+with sq.connect('promishlenost.db') as con:
+ cur = con.cursor()
+ cur.execute("SELECT * FROM predpriyatia")
+ result = cur.fetchall()
+ print(result)
 
 with sq.connect('promishlenost.db') as con:
  cur = con.cursor()
@@ -38,38 +42,38 @@ with sq.connect('promishlenost.db') as con:
  with sq.connect('promishlenost.db') as con:
   cur = con.cursor()
  cur.execute("UPDATE predpriyatia SET obsh_stoim_oborud = obsh_stoim_oborud + 50000 WHERE filials = 2")
-result = cur.fetchall()
-print(result)
+ result = cur.fetchall()
+ print(result)
 
 with sq.connect('promishlenost.db') as con:
  cur = con.cursor()
  cur.execute("UPDATE predpriyatia SET v_vipysk_prod = 154000 WHERE name_predpiatia LIKE 'Евросеть'")
-result = cur.fetchall()
-print(result)
+ result = cur.fetchall()
+ print(result)
 
 with sq.connect('promishlenost.db') as con:
  cur = con.cursor()
  cur.execute("UPDATE predpriyatia SET obsh_chisl_personala = obsh_chisl_personala + 10 WHERE name_predpiatia LIKE 'Р%'")
-result = cur.fetchall()
-print(result)
+ result = cur.fetchall()
+ print(result)
 
-with sq.connect('promishlenost.db') as con:
- cur = con.cursor()
- cur.execute("DELETE FROM predpriyatia WHERE filials = 5")
-result = cur.fetchall()
-print(result)
-
-with sq.connect('promishlenost.db') as con:
- cur = con.cursor()
- cur.execute("DELETE FROM predpriyatia WHERE kod_predpriatia = 9")
-result = cur.fetchall()
-print(result)
-
-with sq.connect('promishlenost.db') as con:
- cur = con.cursor()
- cur.execute("DELETE FROM predpriyatia WHERE obsh_chisl_personala > 54")
-result = cur.fetchall()
-print(result)
+# with sq.connect('promishlenost.db') as con:
+#  cur = con.cursor()
+#  cur.execute("DELETE FROM predpriyatia WHERE filials = 5")
+# result = cur.fetchall()
+# print(result)
+#
+# with sq.connect('promishlenost.db') as con:
+#  cur = con.cursor()
+#  cur.execute("DELETE FROM predpriyatia WHERE kod_predpriatia = 9")
+# result = cur.fetchall()
+# print(result)
+#
+# with sq.connect('promishlenost.db') as con:
+#  cur = con.cursor()
+#  cur.execute("DELETE FROM predpriyatia WHERE obsh_chisl_personala > 54")
+# result = cur.fetchall()
+# print(result)
 
 
 
